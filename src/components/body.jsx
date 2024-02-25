@@ -16,18 +16,15 @@ export default function Body() {
         }
     };
 
-    useEffect(() => {
-        const fetchWeatherData = async () => {
-          try {
+    useEffect(() =>async () => {  
+        try {
             const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=2a5b6d6f02964d368d585400233012&q=Sri%20Lanka`);
             const data = await response.json();
             setDWeatherData(data);
           } catch (error) {
             console.error("Error fetching weather data:", error);
           }
-        };
-    
-        fetchWeatherData();
+        
       }, []);
 
     return (
